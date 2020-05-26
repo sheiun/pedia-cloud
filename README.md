@@ -40,7 +40,7 @@ pip install pedia-cloud
 ### Dictionary based idiom segmentation
 
 > I implement it by using pedia-cloud dictionary.  
-> This will be slow for long setence due to api call.
+> This will be slow for long sentence due to api call.
 
 ```python
 >>> from pedia_cloud import PediaDictionary
