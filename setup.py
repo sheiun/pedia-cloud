@@ -5,9 +5,9 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pedia-cloud",
-    version="0.0.1",
+    version="0.0.2",
     author="SheiUn",
-    author_email="developer@sheiun.me",
+    author_email="develop@sheiun.me",
     description="A third-party Python API for Pedia Cloud Dictionary",
     long_description=long_description,
     long_description_content_type="text/markdown",
