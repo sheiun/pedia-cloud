@@ -33,6 +33,8 @@ pip install pedia-cloud
 '好'
 >>> word.zuyin
 'ㄏㄠˇ'
+>>> word.annotations
+['美、善，理想的。', '友愛的。', ...]
 >>> word.meanings
 [{'type': '[形]', 'def': '美、善，...
 ```
