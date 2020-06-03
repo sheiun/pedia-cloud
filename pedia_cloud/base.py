@@ -45,12 +45,15 @@ class Word:
             raise APIException("No annotation!")
         return _annotations
 
+    def filter_by_pos(self, poss: List[str]) -> List[Meaning]:
+        return list(filter(lambda m: m.pos in poss, self.meanings))
+
     class Meaning(dict):
         cached_refs: Dict[str, str] = {}
 
         @property
         def pos(self) -> str:
-            return self["type"]
+            return re.search(r"\[(.*)\].*", self["type"]).group(1)
 
         @property
         def annotation(self) -> str:

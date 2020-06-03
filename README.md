@@ -37,6 +37,22 @@ pip install pedia-cloud
 ['美、善，理想的。', '友愛的。', ...]
 >>> word.meanings
 [{'type': '[形]', 'def': '美、善，...
+>>> word.filter_by_pos(["副"])
+[{'type': '[副]', 'def': '很、非常。表示程度深...
+```
+
+## A meaning
+
+```python
+>>> meaning = word.meanings[0]
+>>> meaning
+{'type': '[形]', 'def': '美、善 ...
+>>> meaning.pos
+'形'
+>>> meaning.full
+'美、善，理想的。如：「好東西」...
+>>> meaning.annotation
+'美、善，理想的。'
 ```
 
 ### Dictionary based idiom segmentation
