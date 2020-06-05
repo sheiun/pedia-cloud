@@ -6,9 +6,7 @@ from typing import Dict, List, Optional
 
 import requests
 
-
-class APIException(Exception):
-    pass
+from .error import ApiError
 
 
 class Word:
@@ -42,7 +40,7 @@ class Word:
         _annotations = [meaning.annotation for meaning in self.meanings]
         # XXX: Not sure if _annotations will be empty or not
         if len(_annotations) == 0:
-            raise APIException("No annotation!")
+            raise ApiError("No annotation!")
         return _annotations
 
     def filter_by_pos(self, poss: List[str]) -> List[Meaning]:
@@ -91,9 +89,9 @@ class PediaDictionary:
         if not isinstance(json, dict):
             json = loads(json)
         if "Message" in json:
-            raise APIException(json["Message"])
+            raise ApiError(json["Message"])
         if "revised_dict" not in json:
-            raise APIException("revised_dict not exist")
+            raise ApiError("revised_dict not exist")
         heteronyms = json["revised_dict"]["heteronyms"]
         if not heteronyms:
             raise KeyError(word, "No data in heteronyms!")
@@ -127,7 +125,7 @@ class PediaDictionary:
                 current = word[position : position + window]
                 try:
                     PediaDictionary.get_one(current)
-                except APIException:
+                except ApiError:
                     continue
                 parts.append((position, position + window))
         parts.sort(key=lambda x: x[0])
