@@ -52,8 +52,11 @@ class Word:
         cached_refs: Dict[str, str] = {}
 
         @property
-        def pos(self) -> str:
-            return re.search(r"\[(.*)\].*", self["type"]).group(1)
+        def pos(self) -> Optional[str]:
+            try:
+                return re.search(r"\[(.*)\].*", self["type"]).group(1)
+            except KeyError:
+                return None
 
         @property
         def annotation(self) -> str:
