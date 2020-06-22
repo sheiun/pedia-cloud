@@ -137,7 +137,7 @@ class PediaDictionary:
                 indices.append((p, p + 1))
                 p += 1
             indices.append((i, j))
-            p = i + j
+            p = i + j - 1
         while p < len(word):
             indices.append((p, p + 1))
             p += 1
