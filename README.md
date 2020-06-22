@@ -65,5 +65,5 @@ pip install pedia-cloud
 >>> PediaDictionary.segment("一鳴驚人")
 ['一', '鳴', '驚人']
 >>> PediaDictionary.segment("匯集了世界各地的新聞來源")
-['匯集', '了', '世界', '新聞來源']
+['匯集', '集', '了', '世界', '的', '新聞來源']
 ```
