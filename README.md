@@ -22,6 +22,14 @@ pip install pedia-cloud
 [{'type': '[名]', 'def': '天剛亮的時候...'}, ...]
 ```
 
+### Get all possible part-of-speech
+
+```python
+>>> from pedia_cloud import PediaDictionary
+>>> PediaDictionary.get_all_poss("好")
+Counter({'副': 7, '形': 3, '動': 3, '歎': 2, '名': 2})
+```
+
 ### A word
 
 ```python

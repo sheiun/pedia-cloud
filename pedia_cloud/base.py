@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import re
+from collections import Counter
 from json import loads
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Counter as CounterT
 
 import requests
 
@@ -99,12 +100,20 @@ class PediaDictionary:
         return words
 
     @classmethod
-    def get_all_annotations(cls, word: str):
+    def get_all_annotations(cls, word: str) -> List[str]:
         words = cls.get_all(word)
         annotations = []
         for word in words:
             annotations.extend(word.annotations)
         return annotations
+
+    @classmethod
+    def get_all_poss(cls, word: str) -> CounterT[str, int]:
+        words = cls.get_all(word)
+        poss = []
+        for word in words:
+            poss.extend([m.pos for m in word.meanings if m.pos])
+        return Counter(poss)
 
     @classmethod
     def get_one(cls, word: str) -> Word:
