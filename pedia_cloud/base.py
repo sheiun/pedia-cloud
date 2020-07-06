@@ -129,7 +129,12 @@ class PediaDictionary:
         for window in range(len(word) - 1, 1, -1):
             for position in range(0, len(word) - window + 1):
                 # NOTE: overlay checking
-                if any([p[0] <= position < p[1] for p in parts]):
+                if any(
+                    [
+                        p[0] <= position < p[1] or p[0] < position + window < p[1]
+                        for p in parts
+                    ]
+                ):
                     continue
                 current = word[position : position + window]
                 try:
