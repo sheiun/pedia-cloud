@@ -12,7 +12,7 @@ except AttributeError:
 
 setuptools.setup(
     name="pedia-cloud",
-    version="0.0.7",
+    version="0.0.8",
     author="SheiUn",
     author_email="develop@sheiun.me",
     description="A third-party Python API for Pedia Cloud Dictionary",
