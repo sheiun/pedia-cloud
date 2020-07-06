@@ -5,7 +5,10 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 install_reqs = parse_requirements("requirements.txt", session="hack")
-reqs = [str(ir.req) for ir in install_reqs]
+try:
+    reqs = [str(ir.req) for ir in install_reqs]
+except AttributeError:
+    reqs = [str(ir.requirement) for ir in install_reqs]
 
 setuptools.setup(
     name="pedia-cloud",
