@@ -47,6 +47,16 @@ Counter({'副': 7, '形': 3, '動': 3, '歎': 2, '名': 2})
 [{'type': '[形]', 'def': '美、善，...
 >>> word.filter_by_pos(["副"])
 [{'type': '[副]', 'def': '很、非常。表示程度深...
+
+>>> word = PediaDictionary.get_one("囫")
+>>> word.has_meaning
+False
+>>> word.annotations
+['完整、整個。']
+>>> word.meanings
+[{'def': '參見「囫圇」條。'}]
+>>> word.meta
+{'bopomofo': 'ㄏㄨˊ', 'pinyin': 'hú', 'definitions': [{'def': '參見「囫圇」條。'}]}
 ```
 
 ## A meaning
@@ -63,7 +73,7 @@ Counter({'副': 7, '形': 3, '動': 3, '歎': 2, '名': 2})
 '美、善，理想的。'
 ```
 
-### Dictionary based idiom segmentation
+## Dictionary based idiom segmentation
 
 > I implement it by using pedia-cloud dictionary.  
 > This will be slow for long sentence due to api call.
